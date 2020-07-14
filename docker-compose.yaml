@@ -1,0 +1,16 @@
+version: '2.3'
+services: 
+  nvidia-jupyter:
+    image: nvidia-jupyter:v1
+    container_name: ssi-jupyter
+    environment:
+        - NVIDIA_VISIBLE_DEVICES=all     
+    expose: 
+        - "8080"
+    runtime: nvidia
+    ports:
+        - "808:8080"      
+    volumes: 
+        - ./src:/home/jovyan/work:z
+        - ./model:/home/jovyan/model:z
+        - ./訓練用画像:/home/jovyan/data:z
